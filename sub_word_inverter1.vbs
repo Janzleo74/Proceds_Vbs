@@ -1,26 +1,25 @@
-'Inverter_v01
+
+'Inverter_v02
 
 Option Explicit 
 
 Dim objshell
 Set objshell=CreateObject("wscript.shell")
 
-Dim ynome, cutL, cutR, tam, myarray, c, timer
+Dim entry, tam, myarray, c, timer
 Timer=200
 
-ynome=" L e o n a r d o "
+MsgBox "Ola. Digite a palavra, nome ou frase que deseja inverter: "
+entry=InputBox("Digite aqui, com um espaco para cada letra.", "","Assim-> c o m o  e s t e  e x e m p l o")
 
-REM cutL=Left(mynome,8)
-REM cutR=Right(mynome,4)
+'entry=" L e o n a r d o  J a n z"
 
-tam=Len(ynome)
-MsgBox "Your name_size: " &tam
+tam=Len(entry)
+MsgBox "Esse eh o tamanho do que vc digitou: " &tam &" caracteres"
 
 '*first, To array. ENTAO --> from Ubond to LBound.
 
-myarray=Split(ynome)
-
-REM --> Word_Inverter:
+myarray=Split(entry)
 
 Dim uband, lband, i
 
@@ -39,12 +38,15 @@ wscript.sleep timer
 objshell.sendkeys " "
 wscript.sleep timer
 Next
-wscript.sleep 5000
-objshell.sendkeys "{enter 2}"
-wscript.sleep 2000
-objshell.sendkeys "%"
-wscript.sleep 1500
-objshell.sendkeys "asn"
 
+wscript.sleep 2500
+MsgBox "Mto bem! Agora eh soh copiar e fechar o Notepad.",VbInformation
+MsgBox "Agradecido pelo uso e por sua referencia."
 
+REM wscript.sleep 5000
+REM objshell.sendkeys "{enter 2}"
+REM wscript.sleep 2000
+REM objshell.sendkeys "%"
+REM wscript.sleep 1500
+REM objshell.sendkeys "asn"
 
