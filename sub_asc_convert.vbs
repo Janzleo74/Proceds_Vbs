@@ -4,31 +4,32 @@ Option Explicit
 Dim objshell
 Set objshell=CreateObject("wscript.shell")
 
-Dim nome, miarray, letra, toasc, i, tam, c, timer
-timer= 200
+Dim mistr, miarray, letra, i, tam, c, timer
+timer= 250
 
-letra="d"
+REM letra="d"
+REM toasc=Asc(letra)
+'------
+REM mistr="Janz"
 
-toasc=Asc(letra)
-wscript.echo toasc
+MsgBox "Hi there! Digite seu nome ou uma palavra para conversao em AscDecimal: "
+mistr=InputBox("Digite aqui; e sem espacos")
 
-nome="Janz"
-tam=Len(nome)
-wscript.echo tam
+tam=Len(mistr)
 
+MsgBox "Esse eh o tamanho do que voce digitou: " &"termo de " &tam &" bytes."
 
 miarray=Array(0)
 Redim miarray(tam)
 
 'OBS: Como as arrays sao 0_based, um qualquer valor que damos
-'no Redim, sempre nos trará um "size+1" [-->Asc_Convert..]
-
+'no Redim, sempre nos trará um "size+1" [..Asc_Convert..]
 
 For i=1 To tam
-miarray(i)=Asc(Mid(nome,i,1))
+miarray(i)=Asc(Mid(mistr,i,1))
 Next
 
-REM For c=0 To UBound(miarray)
+REM For c=1 To UBound(miarray)
 REM MsgBox miarray(c)
 REM Next
 
@@ -43,7 +44,10 @@ objshell.sendkeys "-"
 wscript.sleep timer
 Next
 
+wscript.sleep 1500
+MsgBox "Mto bem! Agora, faca bom uso dessa ferramenta. ^^",VbInformation
+MsgBox "Grato pela utilizacao e referencia."
+
 REM wscript.sleep 6000
 REM objshell.sendkeys "%asn"
-
 
