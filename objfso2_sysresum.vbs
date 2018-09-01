@@ -12,6 +12,8 @@ Dim Op
 Set Objshell=CreateObject("wscript.shell")
 Set ObjFSO=CreateObject("scripting.FileSystemObject")
 
+    
+'Tanking the inputs =========================================
 
 Op=MsgBox("Ola. Voce deseja um resumo do seu Sistema?",VbYesNo+VbQuestion)
 if Op=VbYes Then
@@ -26,6 +28,9 @@ Elseif Not ObjFSO.FolderExists("c:\resumo_sys01\") Then
 ObjFSO.CreateFolder("c:\resumo_sys01\")
 End if
 
+      
+'Running =========================================
+      
 wscript.sleep 2000
 MsgBox "Certo. Pasta de referncia ja criada.",VbOkOnly
 wscript.sleep 2000
