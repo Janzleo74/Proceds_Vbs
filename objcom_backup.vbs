@@ -1,5 +1,7 @@
 
-'Novo trejno_Proced_Backup
+'Simple_Proced_of_Backup
+'Author: Leonardo La Janz.
+
 
 'HEAD ====================
 
@@ -8,7 +10,7 @@ Option Explicit
 Dim ObjShell, ObjFso
 
 Set ObjShell=CreateObject("wscript.shell")
-Set ObjFso=CreateObject("scripting.FileSystemObject")
+Set ObjFSO=CreateObject("scripting.FileSystemObject")
 
 Dim fonto, destin, eko
 
@@ -17,12 +19,17 @@ Dim fonto, destin, eko
 eko=MsgBox("Ola. Voce deseja fazer um backup agora?",VbYesNo+VbInformation)
 
 If eko = VbYes Then
-fonto=(InputBox("Digite aqui o caminho da pasta_origem: "))
+Do While fonto=""
+fonto=(InputBox("Digite o caminho da pasta_origem: "))
+loop
+
 MsgBox "Agora, digite o caminho da pasta_destino: ",VbInformation
+Do While destin=""
 destin=(InputBox("Endereco da pasta_destino: "))
+loop
 wscript.sleep 1000
 
-ObjFso.CopyFolder fonto,destin
+ObjFSO.CopyFolder fonto,destin
 MsgBox "Procedimento realizado com sucesso!"
 wscript.sleep 1000
 wscript.quit
@@ -30,5 +37,4 @@ wscript.quit
 Elseif eko = VbNo Then
 MsgBox "Ok. Operacao cancelada.",VbCritical
 End if
-
 
